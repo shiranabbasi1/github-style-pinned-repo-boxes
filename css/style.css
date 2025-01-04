@@ -19,7 +19,20 @@ body {
 }
 
 #pinned-boxes-wrapper > h2 {
-    width: 100%;
+    width: 432px;
+}
+
+#pinned-boxes-wrapper > a {
+    display: block;
+    width: 432px;
+    text-align: right;
+    font-size: 12px;
+    text-decoration: none;
+    color: #0969da;
+}
+
+#pinned-boxes-wrapper > a:hover {
+    text-decoration: underline;
 }
 
 .box {
