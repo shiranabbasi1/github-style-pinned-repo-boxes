@@ -1,4 +1,4 @@
-const {createApp, ref} = Vue;
+const {createApp, ref, computed} = Vue;
 
 
 const app = createApp({
@@ -37,11 +37,33 @@ const app = createApp({
                 isPublic: true,
                 language: "JavaScript",
                 order: 1,
-                pinned: false
+                pinned: true
+            },
+            {
+                name: "github-style-pinned-repo-boxes",
+                description: "A github style pinned repo boxes component",
+                isPublic: true,
+                language: "JavaScript",
+                order: 6,
+                pinned: true
+            },
+            {
+                name: "fronetend-portfolio",
+                description: "My website design portfolio",
+                isPublic: true,
+                language: "JavaScript",
+                order: 5,
+                pinned: true
             }
         ];
+
+        const displayData = computed(() => {
+            const result = data.filter(x => x.pinned).toSorted((a, b) => (a.order - b.order));
+            return result;
+        });
+
         return {
-            data
+            displayData
         };
     }
 });
