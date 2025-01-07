@@ -1,11 +1,13 @@
-const {createApp, ref, computed} = Vue;
+const {createApp, ref, computed, onMounted} = Vue;
 
 
 const app = createApp({
     components: {
-        Box
+        "box": Box,
+        "customize-pin-modal": CustomizePinModal
     },
     setup() {
+        const customizePinModal = ref(null);
         const data = [
             {
                 name: "vuejs-collapseable-side-menu",
@@ -62,8 +64,17 @@ const app = createApp({
             return result;
         });
 
+        function showCustomizePinModal() {
+            customizePinModal.value.show();
+        }
+
+        onMounted(() => {
+        });
+
         return {
-            displayData
+            displayData,
+            showCustomizePinModal,
+            customizePinModal
         };
     }
 });

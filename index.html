@@ -4,25 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/vue.global.js"></script>
+    <script src="js/jquery.js"></script>
     <title>Github Style Pinned Repo Boxes</title>
 </head>
 <body>
     <div id="root">
+        <!-- Modal -->
+        <customize-pin-modal ref="customizePinModal" />
+
         <div id="wrapper">
             <div id="pinned-boxes-wrapper">
                 <h2>Pinned</h2>
-                <a href="">Customize your pins</a>
-                <Box v-for="o in displayData" :data="o" :key="o.name" />
+                <a href="" @click.prevent="showCustomizePinModal()">Customize your pins</a>
+                <box v-for="o in displayData" :data="o" :key="o.name" />
             </div>
         </div>
     </div>
+    <script src="js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="js/box.js"></script>
+    <script src="js/customize-pins-modal.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
